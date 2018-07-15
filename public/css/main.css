@@ -29,6 +29,10 @@ button {
   border: none;
 }
 
+button:focus {
+  outline: none;
+}
+
 a,
 a:hover,
 a:focus {
@@ -99,9 +103,10 @@ a:focus {
           flex-flow: row wrap;
 }
 
-.hero h1 {
+.hero .hero__text {
   margin: 0;
   padding: 0;
+  cursor: pointer;
 }
 
 .main {
@@ -197,6 +202,7 @@ a:focus {
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
   padding-right: 60px;
+  cursor: pointer;
 }
 
 .sidenav span {
@@ -211,8 +217,66 @@ a:focus {
   margin-top: 8px;
 }
 
+.sidenav--open {
+  position: fixed;
+  width: 25%;
+  height: 100%;
+  right: -100%;
+  top: 0;
+  background-color: #fff;
+  -webkit-transition: right .3s;
+  transition: right .3s;
+}
+
+.sidenav--open .closeBtn {
+  width: 30px;
+  height: 65px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  margin-left: 80%;
+}
+
+.sidenav--open .closeBtn span {
+  width: 30px;
+  height: 2px;
+  background-color: #000;
+  margin-bottom: 5px;
+  position: absolute;
+  top: 50%;
+  margin-bottom: 5px;
+}
+
+.sidenav--open .closeBtn span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.sidenav--open .closeBtn span:nth-child(2) {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.sidenav--open ul {
+  width: 100%;
+  height: 100vh;
+}
+
+.sidenav--open ul li {
+  padding: 40px;
+}
+
+.hidden {
+  display: none;
+}
+
 @media screen and (min-width: 1200px) {
   .sidenav {
+    display: none;
+  }
+  .sidenav--open {
     display: none;
   }
 }
@@ -223,6 +287,9 @@ a:focus {
     height: 140px;
   }
   .sidenav {
+    display: none;
+  }
+  .sidenav--open {
     display: none;
   }
 }

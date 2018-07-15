@@ -53,6 +53,10 @@ button {
   user-select: none;
   -webkit-user-drag: none;
   border: none;
+  &:focus{
+    outline: none;
+    
+  }
 }
 
 a,
@@ -89,9 +93,10 @@ a:focus {
   32vh);
   background-color: $heroColor;
   @include flexCenter-AllCenter();
-  & h1 {
+  .hero__text {
     margin: 0;
     padding: 0;
+    cursor: pointer;
   }
 }
 
@@ -139,6 +144,7 @@ a:focus {
   100%);
   @include flexCenter-AllCenteColumn();
   padding-right: 60px;
+  cursor: pointer;
   span {
     @include size(30px,
     2px);
@@ -151,17 +157,66 @@ a:focus {
   }
 }
 
+.sidenav--open {
+  position: fixed;
+  @include size(25%,
+  100%);
+  right: -100%;
+  top: 0;
+  background-color: #fff;
+  transition:right .3s;
+  .closeBtn {
+    @include size(30px,
+    65px);
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    margin-left: 80%;
+    span {
+      @include size(30px,
+      2px);
+      background-color: #000;
+      margin-bottom: 5px;
+      position: absolute;
+      top: 50%;
+      &:nth-child(1) {
+        transform: rotate(45deg);
+      }
+      margin-bottom: 5px;
+      &:nth-child(2) {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  & ul {
+    @include size(100%,
+    100vh);
+    li {
+      padding: 40px;
+    }
+  }
+}
+.hidden{
+  display: none;
+}
 @media screen and (min-width:1200px) {
   .sidenav {
     display: none;
   }
+  .sidenav--open{
+    display: none;
+  }
 }
+
 @media screen and (min-width:801px) and (max-width: 1200px) {
   .main__article {
     @include size(40%,
     140px);
   }
   .sidenav {
+    display: none;
+  }
+  .sidenav--open{
     display: none;
   }
 }
