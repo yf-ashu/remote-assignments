@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900');
+@mixin size($w,
+$h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin flexCenter-AllCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+@mixin flexCenter-AllCenteColumn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+}
+
+@mixin flexCenter-space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: row nowrap;
+}
+
+$heroColor: #c2d5ea;
+$headerColor:#eaeaea;
+$contentColor:#76879a;
+body,
+html {
+  box-sizing: border-box;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  margin: 0;
+  cursor: pointer;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-drag: none;
+  border: none;
+  &:focus{
+    outline: none;
+    
+  }
+}
+
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: none;
+}
+
+// header
+.main-header {
+  @include size(100%,
+  8vh);
+  @include flexCenter-space-between();
+  background-color: $headerColor;
+}
+
+.main-header__title,
+.navbar {
+  padding: 0 40px;
+}
+
+.navbar {
+  ul {
+    @include flexCenter-space-between();
+    li {
+      padding-left: 40px;
+    }
+  }
+}
+
+.hero {
+  @include size(100%,
+  32vh);
+  background-color: $heroColor;
+  @include flexCenter-AllCenter();
+  .hero__text {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+}
+
+.main {
+  @include size(100%,
+  auto);
+  @include flexCenter-AllCenteColumn();
+}
+
+.main__subtitle {
+  padding: 8px;
+}
+
+.main__articles {
+  @include size(100%,
+  auto);
+  max-width: 1200px;
+  @include flexCenter-AllCenter();
+}
+
+.main__article {
+  @include size(40%,
+  150px);
+  text-align: center;
+  background-color: $contentColor;
+  margin: 0 8px 16px 8px;
+  padding: 16px;
+}
+
+.main__button--action {
+  @include size(200px,
+  10%);
+  @include flexCenter-AllCenter();
+  button {
+    background-color: $heroColor;
+    padding: 16px 10px;
+    margin: 8px 0;
+    margin-bottom: 32px;
+    font-size: 16px;
+  }
+}
+
+.sidenav {
+  @include size(auto,
+  100%);
+  @include flexCenter-AllCenteColumn();
+  padding-right: 60px;
+  cursor: pointer;
+  span {
+    @include size(30px,
+    2px);
+    background-color: #000;
+    display: block;
+    margin-bottom: 5px;
+    &:nth-child(1) {
+      margin-top: 8px;
+    }
+  }
+}
+
+.sidenav--open {
+  position: fixed;
+  @include size(25%,
+  100%);
+  right: -100%;
+  top: 0;
+  background-color: #fff;
+  transition:right .3s;
+  .closeBtn {
+    @include size(30px,
+    65px);
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    margin-left: 80%;
+    span {
+      @include size(30px,
+      2px);
+      background-color: #000;
+      margin-bottom: 5px;
+      position: absolute;
+      top: 50%;
+      &:nth-child(1) {
+        transform: rotate(45deg);
+      }
+      margin-bottom: 5px;
+      &:nth-child(2) {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  & ul {
+    @include size(100%,
+    100vh);
+    li {
+      padding: 40px;
+    }
+  }
+}
+.hidden{
+  display: none;
+}
+@media screen and (min-width:1200px) {
+  .sidenav {
+    display: none;
+  }
+  .sidenav--open{
+    display: none;
+  }
+}
+
+@media screen and (min-width:801px) and (max-width: 1200px) {
+  .main__article {
+    @include size(40%,
+    140px);
+  }
+  .sidenav {
+    display: none;
+  }
+  .sidenav--open{
+    display: none;
+  }
+}
+
+@media screen and (min-width:501px) and (max-width: 800px) {
+  .navbar {
+    display: none;
+  }
+  .sidenav {
+    display: flex;
+  }
+  .sidenav--open{
+    @include size(40%,
+  100%);
+  }
+}
+
+@media screen and (max-width:500px) {
+  .navbar {
+    display: none;
+  }
+  .sidenav {
+    display: flex;
+  }
+  .main__article {
+    @include size(100%,
+    140px);
+    margin: 0 24px 24px 24px;
+  }
+  .sidenav--open{
+    @include size(100%,
+  100%);
+  min-width: 360px;
+  }
+}
