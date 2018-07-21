@@ -2,6 +2,7 @@
   "name": "week3",
   "version": "0.1.0",
   "private": true,
+  "homepage":"./",
   "dependencies": {
     "flow-bin": "^0.76.0",
     "gulp-sass": "^4.0.1",
@@ -24,8 +25,6 @@
   "devDependencies": {
     "node-sass": "^4.9.2",
     "node-sass-tilde-importer": "^1.0.2",
-    "sass-loader": "^7.0.3",
-    "homepage":"./"
-
+    "sass-loader": "^7.0.3"
   }
 }
