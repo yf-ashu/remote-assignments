@@ -1,4 +1,6 @@
 import React from 'react';//jsx語法一定要import
+import PropTypes from 'prop-types';
+
 class Header extends React.Component{
   constructor(props) {
     super(props)
@@ -16,15 +18,15 @@ render() {
   const styles = {
     right:this.state.right
   };
-  const prop ={
-    name:this.props.children
-  } 
+  // const prop ={
+  //   name:this.props.children
+  // } 
 
     return ( 
   <div> 
    <header className="main-header">
     <div className="main-header__title">
-      <span>Website Title / Logo {prop.name}</span>
+      <span>Website Title /  {this.props.name}</span>
     </div>
     <nav className="navbar">
       <ul>
@@ -91,6 +93,7 @@ render() {
 }
 }
 Header.propTypes={
+name: PropTypes.string
 
 }
 
