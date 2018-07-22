@@ -228,6 +228,10 @@ a:focus {
   .sidenav {
     display: flex;
   }
+  .sidenav--open{
+    @include size(40%,
+  100%);
+  }
 }
 
 @media screen and (max-width:500px) {
@@ -241,5 +245,10 @@ a:focus {
     @include size(100%,
     140px);
     margin: 0 24px 24px 24px;
+  }
+  .sidenav--open{
+    @include size(100%,
+  100%);
+  min-width: 360px;
   }
 }
